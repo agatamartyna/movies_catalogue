@@ -16,5 +16,9 @@ def homepage():
     return render_template("homepage.html", movies=movies)
 
 
+@app.route("/movie/<movie_id>")
+def movie_details(movie_id):
+    return render_template("movie_details.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
