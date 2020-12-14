@@ -1,5 +1,5 @@
 import requests
-
+from random import sample
 
 def get_popular_movies():
     endpoint = "https://api.themoviedb.org/3/movie/popular"
@@ -14,7 +14,8 @@ def get_popular_movies():
 
 def get_movies(how_many):
     data = get_popular_movies()
-    return data["results"][:how_many]
+
+    return sample(data["results"], how_many)
 
 
 def get_poster_url(poster_path, size="w342"):
@@ -24,7 +25,7 @@ def get_poster_url(poster_path, size="w342"):
 
 
 def get_movie_info():
-    data = get_popular_movies()['results'][:3]
+    data = get_popular_movies()['results']
     movies = []
     for item in data:
         d = dict(title=item['title'], poster_path=get_poster_url(item['poster_path']))
@@ -34,7 +35,7 @@ def get_movie_info():
 
 
 if __name__ == "__main__":
-    print(get_movie_info())
+    print(get_movies(8))
 
 
 
