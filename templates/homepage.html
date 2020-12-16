@@ -1,6 +1,15 @@
 {% extends "index.html" %}
 
 {% block content %}
+    <div class="col-lg-12 mb-4">
+        {% for list in lists %}
+            {% if current_list == list %}
+                <a href="{{ url_for('homepage', list_type = list ) }}" class="btn btn-outline-info active">{{ (list|replace('_', ' '))|capitalize }}</a>
+            {% else %}
+                <a href="{{ url_for('homepage', list_type = list ) }}" class="btn btn-outline-info">{{ (list|replace('_', ' '))|capitalize }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
      <div class="row">
         <div class="col-lg-12 text-center">
             <h1 class="mt-5">Witaj w mojej filmotece</h1>
@@ -14,7 +23,7 @@
                     <h4 class="card-title text-center">{{ movie.title }}</h4>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="{{ url_for('movie_details', movie_id=movie.id) }}">Pokaż więcej</a>
+                    <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-primary">Pokaż więcej</a>
                 </div>
             </div>
         </div>
