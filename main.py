@@ -3,6 +3,7 @@ import tmdb_client
 from random import choice
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'aaas'
 
 @app.context_processor
 def utility_processor():
@@ -16,7 +17,7 @@ def homepage():
     selected_list = request.args.get('list_type', "popular")
     if selected_list not in lists:
         selected_list = "popular"
-    movies = tmdb_client.get_movies(how_many=8, list_type=selected_list)
+    movies = tmdb_client.get_movies(how_many=8, list_type=selected_list, )
     return render_template("homepage.html", movies=movies, current_list=selected_list, lists=lists)
 
 

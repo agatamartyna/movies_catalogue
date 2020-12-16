@@ -1,6 +1,5 @@
 import requests
 
-
 API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWU0NDU3ODA0ZmFiODZkMjdkYTViM2RjOTE2OGJkNiIsInN1YiI6IjVmZDRmOTk1MmNlZmMyMDAzZTFkYWUxNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.onqQhBrrSb7-8x75xIczdx0CGk5_rmEmvL2Lx9PMnac"
 
 def get_movies_list(list_type='popular'):
