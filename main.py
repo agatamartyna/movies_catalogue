@@ -3,7 +3,6 @@ import tmdb_client
 from random import choice
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'aaas'
 
 @app.context_processor
 def utility_processor():
