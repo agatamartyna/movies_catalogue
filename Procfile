@@ -1,0 +1,1 @@
+web: flask db upgrade; gunicorn movies_catalogue:app
